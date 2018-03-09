@@ -20,4 +20,6 @@ kui-snake
 - 触碰绿色点减小长度
 - 触碰紫色点增加长度
 - 长度超过40游戏失败
-
+<br/>
+![kui_snake](https://github.com/Savior2016/kui_snake/blob/master/kui_snake.png)
+<br/>
