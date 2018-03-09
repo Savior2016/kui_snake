@@ -1,3 +1,5 @@
+
+
 kui-snake
 ======
 
@@ -13,6 +15,7 @@ kui-snake
             
 ![github](https://github.com/pagnkelly/wx-snake/blob/master/snake.png)
 
+![kui_snake](https://github.com/Savior2016/kui_snake/blob/master/kui_snake.png)
 
 <br/>
 
@@ -21,5 +24,8 @@ kui-snake
 - 触碰紫色点增加长度
 - 长度超过40游戏失败
 <br/>
-![kui_snake](https://github.com/Savior2016/kui_snake/blob/master/kui_snake.png)
+
+
+
+
 <br/>
