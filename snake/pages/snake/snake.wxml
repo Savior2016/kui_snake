@@ -1,0 +1,79 @@
+<!--snake.wxml-->
+<view class="control">
+
+<view class="score">
+    <view class="title"> {{message_snake}} </view>
+</view>
+
+<view class="score" style="flex-direction:row;">
+
+<view class="scoredetail" style="flex-direction:row;">
+        <view class="scoredesc">当前长度</view>
+        <view class="scorenumber">{{score}}</view>
+</view>
+
+<view class="scoredetail2" style="flex-direction:row;">
+        <view class="scoredesc">历史最短</view>
+        <view class="scorenumber2">{{maxscore}}</view>
+</view>
+
+</view>
+
+
+<view class="ground">
+    <view wx:for="{{ground}}"  class="rows" wx:for-item="cols">
+        <view wx:for="{{cols}}" class="block block_{{item}}" >
+
+        </view>
+    </view>
+</view>
+
+
+  <view style="flex-direction:column;">
+
+    <view class="btnstyle1" style="flex-direction:row;">
+        <button class="mini-btnsx" type="primary" size="mini" bindtap="btntop">上</button>
+    </view>
+
+    <view class="btnstyle2" style="flex-direction:row;">
+      <button class="mini-btnleft" type="primary" size="mini" bindtap="btnleft">左</button>
+      <button class="mini-btn" disabled="flase" type="default" size="mini">+</button>
+      <button class="mini-btn" type="primary" size="mini" bindtap="btnright">右</button>
+
+       <view class="btnstyle4">
+          <button type="warn" size="mini" bindtouchstart="speedup" bindtouchend="speedlow">加速</button>
+       </view>
+    </view>
+
+    
+    <view class="btnstyle3" style="flex-direction:colunm;">
+      <button class="mini-btnsx" type="primary" size="mini" bindtap="btnbottom">下</button>
+    </view>
+
+
+
+
+  
+
+</view>
+
+<!-- 
+ <view class="page-body">
+    <view>
+      <swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000">
+        <block class="page-body" wx:for="{{tipground}}" wx:key="*this">
+          <swiper-item>
+            <view class="scoredesc"> 123 </view>
+          </swiper-item>
+
+        </block>
+      </swiper>
+    </view>
+</view> -->
+
+
+  <modal class="modal" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange">
+      <view calss="again">再来一次？</view>
+  </modal>
+
+</view>
