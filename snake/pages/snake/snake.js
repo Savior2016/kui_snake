@@ -26,6 +26,7 @@ Page({
    } ,
    onLoad:function(){
      
+       
        var maxscore = wx.getStorageSync('maxscore');
        if(!maxscore) maxscore = 20
         this.setData({
@@ -39,11 +40,15 @@ Page({
         
         this.move();//蛇移动
 
-        wx.showToast({
-          title: "点击方向键开始",
-          icon: "loading",
-          duration: 1000
+
+        wx.showModal({
+          title: "游戏规则",
+          content: "目标是蛇变短;吃紫点变长，绿点变短；蛇身会自己变长，按住加速能延缓变长；按方向键开始游戏(由于适配问题，边缘可能有不能触碰的区域)",
+          showCancel: false,
+          confirmText: "确定"
         })
+
+        
 
         
    },
@@ -95,7 +100,6 @@ Page({
          ground[x][y] = 4;
          this.setData({
            ground: ground,
-           food: [x, y]
          });
        }
        else {
@@ -521,24 +525,35 @@ Page({
                     })
             }
         }//撞到自身检测
+        var snake_ltail0 = arr[0][0];
+        var snake_ltail1 = arr[0][1];
         if(snakeHEAD[0]==this.data.food[0]&&snakeHEAD[1]==this.data.food[1]){
+          
+          
+          
             arr.shift(snakeTAIL);
+            
+            var ground = this.data.ground;
+            ground[snake_ltail0][snake_ltail1] = 0;
+
             this.setData({
-                score:this.data.score- 1
+                score:this.data.score- 1,
+                ground:ground,
             });
             this.storeScore();
+
+
+
             this.creatFood();
         }//吃到食物检测
 
         if (this.data.ground[snakeHEAD[0]][snakeHEAD[1]]==4) {
           arr.unshift(snakeTAIL);
-          arr.unshift(snakeTAIL);
-          arr.unshift(snakeTAIL);
           this.setData({
-            score: this.data.score + 3
+            score: this.data.score + 1
           });
           this.storeScore();
-          this.creatwall(5);
+          this.initwall(1);
           
         }//触碰处罚点检测
         
